@@ -8,8 +8,11 @@
     </button>
   </div>
 <% end %>
+
+
     <% @countries.each do |country| %>
     <%= cl_image_tag country.photo.key, height: 300, width: 400, crop: :fill %>
     <%= country.name %>
+    <%= link_to 'Lets fly', country_path(country), class: 'btn btn-primary btnloc'%>
     <% end %>
 </div>

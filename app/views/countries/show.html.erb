@@ -1,0 +1,6 @@
+<h1><%= @country.description %></h1
+<h2><%= @country.quarantine_rules %></h2>
+<h2><%= @country.active_quarantine %></h2>
+<%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
+
+<%= link_to 'back', countries_path, class: "btn btn-primary" %>
