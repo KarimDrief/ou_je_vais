@@ -1,8 +1,15 @@
+
 <div class="container">
-  <% @countries.each do |country| %>
-  <%= country.name %>
-  <%= country.description %>
-  <%= country.quarantine_rules %>
-  <%= country.active_quarantine %>
-  <% end %>
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+<% end %>
+    <% @countries.each do |country| %>
+    <%= cl_image_tag country.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= country.name %>
+    <% end %>
 </div>
