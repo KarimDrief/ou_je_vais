@@ -1,0 +1,8 @@
+<div class="container">
+  <% @countries.each do |country| %>
+  <%= country.name %>
+  <%= country.description %>
+  <%= country.quarantine_rules %>
+  <%= country.active_quarantine %>
+  <% end %>
+</div>
