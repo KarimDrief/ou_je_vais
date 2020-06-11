@@ -1,6 +1,14 @@
-<h1><%= @country.description %></h1
-<h2><%= @country.quarantine_rules %></h2>
-<h2><%= @country.active_quarantine %></h2>
-<%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container">
+  <h2><%= @country.description %></h2>
+  <h2><%= @country.quarantine_rules %></h2>
+  <h2><%= @country.active_quarantine %></h2>
+  <%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= link_to 'back', '/', class: "btn btn-primary d-flex justify-content-center flex-wrap" %>
+</div>
 
-<%= link_to 'back', countries_path, class: "btn btn-primary" %>
+<h1>All my activities here</h1>
+<%  @activities.each do |activity| %>
+<%= activity.name %>
+<%= cl_image_tag activity.photo.key, height: 300, width: 400, crop: :fill %>
+
+<% end %>
