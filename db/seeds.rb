@@ -7,7 +7,7 @@ Activity.destroy_all
 puts " Creating country"
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591791945/aron-van-de-pol-tZDtyUrYrFU-unsplash_jowmpa.jpg')
-angleterre = Country.new(name: 'angleterre', description: "The land of hope and glory", quarantine_rules:"You got fourteen days of quarantine when you arrive on the territory. Be patient !",
+angleterre = Country.new(name: 'Angleterre', description: "The land of hope and glory", quarantine_rules:"You got fourteen days of quarantine when you arrive on the territory. Be patient !",
   active_quarantine: 14)
 angleterre.photo.attach(io: file, filename: 'angleterre.png', content_type: 'image/png')
 angleterre.save
@@ -96,6 +96,15 @@ activity4.photo.attach(io: file, filename: 'activity4.png', content_type: 'image
 activity4.save
 
 puts "Created #{activity4.name}"
+
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591967452/Plaza_mayor_ur5lao.jpg')
+activity5 = Activity.new(name: 'Plaza Mayor', description: "La Plaza Mayor est située au cœur de Madrid, à quelques mètres de la Puerta del Sol. Inaugurée en 1619, elle est tout un symbole pour la capitale.",
+  adress: 'Plaza Mayor, 28012 Madrid, Espagne', country_id: espagne.id, urbain: true, )
+activity5.photo.attach(io: file, filename: 'activity5.png', content_type: 'image/png')
+activity5.save
+
+puts "Created #{activity5.name}"
+
 puts "Finished"
 
 
