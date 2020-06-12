@@ -1,5 +1,10 @@
 class ActivitiesController < ApplicationController
- def index
-  @activities = Activity.find(params[:id])
- end
+  def index
+    @country = country(params[:id])
+    @activities = Activity.where(country: @country)
+  end
+
+  def show
+    @activities = Activity.find(params[:id])
+  end
 end

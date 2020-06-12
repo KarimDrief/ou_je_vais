@@ -1,14 +1,16 @@
 <div class="container">
-  <h2><%= @country.description %></h2>
-  <h2><%= @country.quarantine_rules %></h2>
-  <h2><%= @country.active_quarantine %></h2>
-  <%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="d-flex justify-content-center">
+    <%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <p class="m-2"><%= @country.description %></p>
+  <p><%= @country.quarantine_rules %></p>
+  <p><%= @country.active_quarantine %></p>
   <%= link_to 'back', '/', class: "btn btn-primary d-flex justify-content-center flex-wrap" %>
 </div>
-
-<h1>All my activities here</h1>
 <%  @activities.each do |activity| %>
-<%= activity.name %>
-<%= cl_image_tag activity.photo.key, height: 300, width: 400, crop: :fill %>
-
+<%= link_to activity_path(activity) do  %>
+<div class="card mb-2 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path activity.photo.key, height: 100, width: 100, crop: :fill %>')">
+  <h2 class="white text-center"><%= activity.name %></h2>
+</div>
+<% end %>
 <% end %>
