@@ -7,3 +7,7 @@ Rails.application.routes.draw do
  end
  resources :activities, only:[:show]
 end
+
+
+# model city nested under countries => activities
+# model
