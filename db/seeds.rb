@@ -63,35 +63,27 @@ greece.save
 
 puts "Created #{greece.name}"
 
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591877516/Athe%CC%81nes_ezxazh.jpg')
-activity1 = Activity.new(name: 'Salut', description: "Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591889824/tour_eiffel_jtjjbv.jpg')
+activity1 = Activity.new(name: 'Tour Eiffel', description: "Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
   adress: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris', country_id: france.id)
-activity1.photo.attach(io: file, filename: 'activity.png', content_type: 'image/png')
+activity1.photo.attach(io: file, filename: 'activity1.png', content_type: 'image/png')
 activity1.save
 
 puts "Created #{activity1.name}"
 
 
 
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591877516/Athe%CC%81nes_ezxazh.jpg')
-activity2 = Activity.new(name: 'Visit de la tour Eiffel', description: "Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
-  adress: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris', country_id: france.id)
-activity2.photo.attach(io: file, filename: 'activity.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591890209/montmartre_ofwbzk.jpg')
+activity2 = Activity.new(name: 'Montmartre', description: "Montmartre est un quartier de Paris dominé par la basilique du Sacré-Cœur. Depuis le XIXᵉ siècle, il accueille de nombreux artistes tels que Picasso ou Modigliani et devient le symbole d'un mode de vie bohème.",
+  adress: 'Quartier Montmartre, 75018 Paris', country_id: france.id)
+activity2.photo.attach(io: file, filename: 'activity2.png', content_type: 'image/png')
 activity2.save
 
 puts "Created #{activity2.name}"
-
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591877516/Athe%CC%81nes_ezxazh.jpg')
-activity3 = Activity.new(name: 'Visit de la tour Eiffel', description: "Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
-  adress: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris', country_id: spain.id)
-activity3.photo.attach(io: file, filename: 'activity.png', content_type: 'image/png')
-activity3.save
-
-puts "Created #{activity3.name}"
 puts "Finished"
 
 
 # url = "https://restcountries.eu/rest/v2/all"
 # repo = open(url).read()
 # ending = JSON.parse(repo)
-# puts ending[0]["region"]
+# puts ending[0]["name"]
