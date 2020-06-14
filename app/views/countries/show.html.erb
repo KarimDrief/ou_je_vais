@@ -2,10 +2,10 @@
   <div class="d-flex justify-content-center">
     <%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
-  <p class="m-2"><%= @country.description %></p>
+  <p class="description m-2"><%= @country.description %></p>
   <p><%= @country.quarantine_rules %></p>
-  <p><%= @country.active_quarantine %></p>
-  <%= link_to 'back', '/', class: "btn btn-primary d-flex justify-content-center flex-wrap" %>
+  <p><%= @country.active_quarantine%> jours de quarantaine</p>
+  <%= link_to 'back', '/', class: " btn btn-secondary btn-sm d-flex justify-content-center flex-wrap" %>
 </div>
 <%  @activities.each do |activity| %>
 <%= link_to activity_path(activity) do  %>
