@@ -65,7 +65,7 @@ puts "Created #{grèce.name}"
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591889824/tour_eiffel_jtjjbv.jpg')
 activity1 = Activity.new(name: 'Tour Eiffel', description: "Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
-  adress: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris', country_id: france.id, urbain: true)
+  adress: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris', country_id: france.id, city: "Paris", urbain: true)
 activity1.photo.attach(io: file, filename: 'activity1.png', content_type: 'image/png')
 activity1.save
 
@@ -75,7 +75,7 @@ puts "Created #{activity1.name}"
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591890209/montmartre_ofwbzk.jpg')
 activity2 = Activity.new(name: 'Montmartre', description: "Montmartre est un quartier de Paris dominé par la basilique du Sacré-Cœur. Depuis le XIXᵉ siècle, il accueille de nombreux artistes tels que Picasso ou Modigliani et devient le symbole d'un mode de vie bohème.",
-  adress: 'Quartier Montmartre, 75018 Paris', country_id: france.id, culturel: true)
+  adress: 'Quartier Montmartre, 75018 Paris', country_id: france.id, city: "Paris", culturel: true)
 activity2.photo.attach(io: file, filename: 'activity2.png', content_type: 'image/png')
 activity2.save
 
@@ -83,7 +83,7 @@ puts "Created #{activity2.name}"
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591967208/jardins_du_lux_ekxgig.jpg')
 activity3 = Activity.new(name: 'jardins du Luxembourg', description: "Parc du XVIIe siècle comprenant des arbres et des jardins soigneusement agencés, ainsi que des statues.",
-  adress: '75006 Paris', country_id: france.id, nature: true)
+  adress: '75006 Paris', country_id: france.id, city: "Paris", nature: true)
 activity3.photo.attach(io: file, filename: 'activity3.png', content_type: 'image/png')
 activity3.save
 
@@ -91,15 +91,15 @@ puts "Created #{activity3.name}"
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591967452/Plaza_mayor_ur5lao.jpg')
 activity4 = Activity.new(name: 'Plaza Mayor', description: "La Plaza Mayor est située au cœur de Madrid, à quelques mètres de la Puerta del Sol. Inaugurée en 1619, elle est tout un symbole pour la capitale.",
-  adress: 'Plaza Mayor, 28012 Madrid, Espagne', country_id: espagne.id, urbain: true, )
+  adress: 'Plaza Mayor, 28012 Madrid, Espagne', country_id: espagne.id, city: "Madrid", urbain: true, )
 activity4.photo.attach(io: file, filename: 'activity4.png', content_type: 'image/png')
 activity4.save
 
 puts "Created #{activity4.name}"
 
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591967452/Plaza_mayor_ur5lao.jpg')
-activity5 = Activity.new(name: 'Plaza Mayor', description: "La Plaza Mayor est située au cœur de Madrid, à quelques mètres de la Puerta del Sol. Inaugurée en 1619, elle est tout un symbole pour la capitale.",
-  adress: 'Plaza Mayor, 28012 Madrid, Espagne', country_id: espagne.id, urbain: true, )
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1592213013/muse%CC%81e_prado_ydvtce.jpg')
+activity5 = Activity.new(name: 'Musée du Prado', description: "e Musée du Prado est le musée le plus célèbre de Madrid et un des musées d'art les plus importants du monde. Il a été construit par Juan de Villanueva et a été inauguré en 1819.",
+  adress: 'Calle de Ruiz de Alarcón, 23, 28014 Madrid, Espagne', country_id: espagne.id, city:"Madrid", urbain: true, )
 activity5.photo.attach(io: file, filename: 'activity5.png', content_type: 'image/png')
 activity5.save
 

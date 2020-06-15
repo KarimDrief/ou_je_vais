@@ -10,7 +10,7 @@
 <%  @activities.each do |activity| %>
 <%= link_to activity_path(activity) do  %>
 <div class="card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path activity.photo.key, height: 100, width: 100, crop: :fill %>')">
-  <h2 class="white text-center"><%= activity.name %></h2>
+  <h2 class="white text-center"><%= activity.city %></h2>
 </div>
 <% end %>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_124253) do
+ActiveRecord::Schema.define(version: 2020_06_15_091900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_124253) do
     t.boolean "culturel"
     t.boolean "nature"
     t.boolean "mer"
+    t.string "city"
     t.index ["country_id"], name: "index_activities_on_country_id"
   end
 
