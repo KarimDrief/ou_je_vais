@@ -1,16 +1,17 @@
+<div class="ojv_banner">
+  <%= cl_image_tag @country.photo.key, class: "ojv_banner-image", crop: :fill %>
+</div>
+
 <div class="container">
-  <div class="d-flex justify-content-center">
-    <%= cl_image_tag @country.photo.key, height: 300, width: 400, crop: :fill %>
-  </div>
   <p class="m-2"><%= @country.description %></p>
   <p><%= @country.quarantine_rules %></p>
   <p><%= @country.active_quarantine %></p>
   <%= link_to 'back', '/', class: "btn btn-primary d-flex justify-content-center flex-wrap" %>
 </div>
-<%  @activities.each do |activity| %>
-<%= link_to activity_path(activity) do  %>
-<div class="card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path activity.photo.key, height: 100, width: 100, crop: :fill %>')">
-  <h2 class="white text-center"><%= activity.name %></h2>
-</div>
-<% end %>
+<%  @cities.each do |city| %>
+  <%= link_to city_path(city) do  %>
+    <div class="card-city m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, width: 400, crop: :fill %>')">
+      <h2 class="white text-center"><%= city.name %></h2>
+    </div>
+  <% end %>
 <% end %>

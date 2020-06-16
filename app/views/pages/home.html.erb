@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @nofooter = true %>
+
+<div class="d-flex flex-column ojv_h-100-vh justify-content-center align-items-center">
+  <h1 class="text-center ojv_big-logo">OuJeVais</h1>
+  <%= link_to "Bienvenue", countries_path, class: "btn btn-primary btn-lg mt-4" %>
+</div>
+
+

@@ -1,19 +1,19 @@
 require "open-uri"
-
 puts "Cleaning database..."
 Country.destroy_all
 Activity.destroy_all
 
-puts " Creating country"
+puts 'Creating COUNTRIES...'
 
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591791945/aron-van-de-pol-tZDtyUrYrFU-unsplash_jowmpa.jpg')
-angleterre = Country.new(name: 'angleterre', description: "The land of hope and glory", quarantine_rules:"You got fourteen days of quarantine when you arrive on the territory. Be patient !",
-  active_quarantine: 14)
-angleterre.photo.attach(io: file, filename: 'angleterre.png', content_type: 'image/png')
-angleterre.save
-
-puts "Created #{angleterre.name}"
-
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1592213189/9rmwhptmu0oiw1ca3ontb40mrz4f.jpg')
+angleterre = Country.new(
+  quarantine_rules: 'test description',
+  active_quarantine: 10,
+  name: 'Angleterre',
+  description: 'description de fou'
+)
+  angleterre.photo.attach(io: file, filename: 'angleterre.png', content_type: 'image/png')
+  angleterre.save
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591816233/chris-karidis-nnzkZNYWHaU-unsplash_nrxrvy.jpg')
 france = Country.new(name: 'France', description: "The land of love, wine and great food", quarantine_rules:"As soon as you arrived on the territory, you can travel all around",
@@ -62,44 +62,46 @@ grèce.photo.attach(io: file, filename: 'grèce.png', content_type: 'image/png')
 grèce.save
 
 puts "Created #{grèce.name}"
+puts "finish"
+
+puts 'Creating Cities'
+
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1592245432/londres2_shctlv.jpg')
+londres = City.new(name: "Londres", country_id: angleterre.id)
+londres.photo.attach(io: file, filename: 'Londres.png', content_type: 'image/png')
+londres.save
+
+puts "Created #{londres.name}"
 
 file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591889824/tour_eiffel_jtjjbv.jpg')
-activity1 = Activity.new(name: 'Tour Eiffel', description: "Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
-  adress: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris', country_id: france.id, urbain: true)
-activity1.photo.attach(io: file, filename: 'activity1.png', content_type: 'image/png')
-activity1.save
+paris = City.new(name: "Paris", country_id: france.id)
+paris.photo.attach(io: file, filename: 'paris.png', content_type: 'image/png')
+paris.save
 
-puts "Created #{activity1.name}"
-
-
-
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591890209/montmartre_ofwbzk.jpg')
-activity2 = Activity.new(name: 'Montmartre', description: "Montmartre est un quartier de Paris dominé par la basilique du Sacré-Cœur. Depuis le XIXᵉ siècle, il accueille de nombreux artistes tels que Picasso ou Modigliani et devient le symbole d'un mode de vie bohème.",
-  adress: 'Quartier Montmartre, 75018 Paris', country_id: france.id, culturel: true)
-activity2.photo.attach(io: file, filename: 'activity2.png', content_type: 'image/png')
-activity2.save
-
-puts "Created #{activity2.name}"
-
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591967208/jardins_du_lux_ekxgig.jpg')
-activity3 = Activity.new(name: 'jardins du Luxembourg', description: "Parc du XVIIe siècle comprenant des arbres et des jardins soigneusement agencés, ainsi que des statues.",
-  adress: '75006 Paris', country_id: france.id, nature: true)
-activity3.photo.attach(io: file, filename: 'activity3.png', content_type: 'image/png')
-activity3.save
-
-puts "Created #{activity3.name}"
-
-file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591967452/Plaza_mayor_ur5lao.jpg')
-activity4 = Activity.new(name: 'Plaza Mayor', description: "La Plaza Mayor est située au cœur de Madrid, à quelques mètres de la Puerta del Sol. Inaugurée en 1619, elle est tout un symbole pour la capitale.",
-  adress: 'Plaza Mayor, 28012 Madrid, Espagne', country_id: espagne.id, urbain: true, )
-activity4.photo.attach(io: file, filename: 'activity4.png', content_type: 'image/png')
-activity4.save
-
-puts "Created #{activity4.name}"
-puts "Finished"
+puts "Created #{paris.name}"
+puts "finish"
 
 
-# url = "https://restcountries.eu/rest/v2/all"
-# repo = open(url).read()
-# ending = JSON.parse(repo)
-# puts ending[0]["name"]
+
+puts " Creating activities"
+
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591889824/tour_eiffel_jtjjbv.jpg')
+tour_eiffel = Activity.new(name: "Tour Eiffel", description:"Visiter la tour Eiffel reste pour la plupart de nos visiteurs un souvenir fort. La Tour est aussi un des monuments payants les plus visités au monde, avec près de 7 millions de visiteurs par an. Il est donc préférable de bien s’organiser en amont, surtout si vous venez de loin, pour que l’expérience de visite de ce symbole de Paris et de la France reste la plus fluide possible, pour petits et grands !",
+adress: "Champ de Mars, 5 Avenue Anatole France, 75007 Paris", city_id: paris.id, urbain: true)
+tour_eiffel.photo.attach(io: file, filename: 'tour_eiffel.png', content_type: 'image/png')
+tour_eiffel.save
+
+puts "Created #{tour_eiffel.name}"
+
+file = URI.open('https://res.cloudinary.com/dm8m3jm1q/image/upload/v1591889824/tour_eiffel_jtjjbv.jpg')
+montmartre = Activity.new(name: "Montmartre", description:"Montmartre, un authentique village au cœur de Paris",
+adress: "75018 Paris", city_id: paris.id, urbain: true)
+montmartre.photo.attach(io: file, filename: 'montmartre.png', content_type: 'image/png')
+montmartre.save
+
+puts "Created #{montmartre.name}"
+puts "finish"
+
+
+
+
