@@ -10,7 +10,7 @@
 </div>
 <%  @cities.each do |city| %>
   <%= link_to city_path(city) do  %>
-    <div class="card-city m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, width: 400, crop: :fill %>')">
+    <div class="card-city m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, width: 400, crop: :fit %>')">
       <h2 class="white text-center"><%= city.name %></h2>
     </div>
   <% end %>
