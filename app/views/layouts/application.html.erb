@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' if @nonavbar == nil %>
     <%= yield %>
     <%= render 'shared/footer' if @nofooter == nil %>
   </body>
