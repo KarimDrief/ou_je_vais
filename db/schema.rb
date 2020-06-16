@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_124253) do
+ActiveRecord::Schema.define(version: 2020_06_15_164817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_124253) do
     t.text "description"
     t.string "name"
     t.text "adress"
-    t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "montagne"
@@ -48,7 +47,16 @@ ActiveRecord::Schema.define(version: 2020_06_12_124253) do
     t.boolean "culturel"
     t.boolean "nature"
     t.boolean "mer"
-    t.index ["country_id"], name: "index_activities_on_country_id"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_activities_on_city_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -75,5 +83,4 @@ ActiveRecord::Schema.define(version: 2020_06_12_124253) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "activities", "countries"
 end

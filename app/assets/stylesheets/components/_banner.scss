@@ -1,0 +1,9 @@
+.ojv_banner {
+  width: 100vw;
+
+  & img.ojv_banner-image {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+  }
+}
