@@ -1,2 +1,5 @@
-<%= @city.name %>
-<%= @city.activities %>
+<%@city.activities.each do |activity|%>
+<%= activity.name %>
+<%= activity.description %>
+<%= activity.adress %>
+<% end %>
