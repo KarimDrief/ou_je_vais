@@ -1,17 +1,23 @@
+<% @page_title = @country.name.capitalize %>
+
 <div class="ojv_banner">
   <%= cl_image_tag @country.photo.key, class: "ojv_banner-image", crop: :fill %>
 </div>
 
-<div class="container">
+<div class="container ojv_bottom-footer-margin">
   <p class="m-2"><%= @country.description %></p>
   <p><%= @country.quarantine_rules %></p>
-  <p><%= @country.active_quarantine %></p>
-  <%= link_to 'back', '/', class: "btn btn-primary d-flex justify-content-center flex-wrap" %>
-</div>
-<%  @cities.each do |city| %>
-  <%= link_to city_path(city) do  %>
-    <div class="card-city m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, width: 400, crop: :fit %>')">
-      <h2 class="white text-center"><%= city.name %></h2>
-    </div>
+  <% if !@country.active_quarantine.nil? && @country.active_quarantine > 0 %>
+    <p><%= @country.active_quarantine %></p>
   <% end %>
-<% end %>
+  <%= link_to 'back', '/', class: "btn btn-primary d-flex justify-content-center flex-wrap" %>
+
+  <%  @cities.each do |city| %>
+    <%= link_to city_path(city) do  %>
+      <div class="card-city m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, width: 400, crop: :fit %>')">
+        <h2 class="white text-center"><%= city.name %></h2>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

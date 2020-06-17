@@ -1,0 +1,19 @@
+<nav class="sticky-top w-100 bg-dark text-white">
+  <div class="container d-flex justify-content-between align-items-center px-4 py-3">
+    
+    <% if @navbar_item == "search" %>
+      <div class="flex-column">
+        <% @page_title.nil? ? @page_title = "OùJeVais" : @page_title %>
+        <h1 class="text-center mb-3"><%= @page_title.length > 20 ? "#{@page_title[0..16]}..." : @page_title %></h1>
+
+        <%= render "shared/form" %>
+      </div>
+
+    <% else %>
+
+      <% @page_title.nil? ? @page_title = "OùJeVais" : @page_title %>
+      <h1><%= @page_title.length > 20 ? "#{@page_title[0..16]}..." : @page_title %></h1>
+
+    <% end %>
+  </div>
+</nav>

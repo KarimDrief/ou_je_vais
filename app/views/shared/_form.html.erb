@@ -1,0 +1,12 @@
+<%= simple_form_for countries_path, method: :get do |f| %>
+  <div class="input-group mb-2 w-100">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Trouvez votre destination"
+      %>
+    <div class="input-group-append">
+      <%= submit_tag "Recherchez", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
